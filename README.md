@@ -15,7 +15,6 @@ Create a virtual enviroment
 pip3 install virtualenv
 python3 virtualenv env
 source env/bin/activate
-
 ```
 
 ## Usage
