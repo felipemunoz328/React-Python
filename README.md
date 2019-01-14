@@ -9,6 +9,14 @@ This example uses the [Connexion](https://github.com/zalando/connexion) library 
 
 ## Requirements
 Python 3.5.2+
+##Starting setup
+Create a virtual enviroment 
+```
+pip3 install virtualenv
+python3 virtualenv env
+source env/bin/activate
+
+```
 
 ## Usage
 To run the server, please execute the following from the root directory:
