@@ -25,10 +25,11 @@ def get_time_post(body):  # noqa: E501
 
     :rtype: None
     """
+    session = Session(server_token='Z_ubRQ6CIPlHGedtNc__jbc4nAHkunUYh3iNFH18')
 
     if connexion.request.is_json:
         body = EstimatedTime.from_dict(connexion.request.get_json())  # noqa: E501
-        print(type(body.longitud_final))
-        estimate = get_time_estimate(body.longitud_inicial,body.latitud_inicial,body.longitud_final,body.latitud_final)
+        estimate = get_time_estimate(session,body.latitud_inicial,body.longitud_inicial,body.latitud_final,body.longitud_final)
+        #tiempo en segundos
 
-    return estimate
+    return estimate/60 #tiempo en minutos

@@ -32,14 +32,14 @@ schemes:
 
 paths:
   /get_latlon:
-    get:
+    post:
       tags:
       - "Google"
-      summary: "obtener tiempo estimado"
+      summary: "obtener coordenadas"
       description: ""
       operationId: "get_latlon_get"
       consumes:
-      - "text/plain; charset=utf-8 , text/plain; charset=utf-8"
+      - "application/json"
       produces:
       - "application/json"
       parameters:
@@ -75,6 +75,29 @@ paths:
         200:
           description: "OK"
       x-swagger-router-controller: "swagger_server.controllers.uber_controller"
+  /user:
+    post:
+      tags:
+      - "User"
+      summary: "uso de los 2 microservices"
+      description: ""
+      operationId: "get_estimated"
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "hello"
+        required: true
+        schema:
+          $ref: "#/definitions/get_lat_lon"
+      responses:
+        200:
+          description: "OK"
+      x-swagger-router-controller: "swagger_server.controllers.user_controller"
+      
 definitions:
   estimated_time:
     type: "object"
@@ -92,18 +115,17 @@ definitions:
         type: "number"
         
     example:
-      longitud_inicial: 17.21822999999999836973074707202613353729248046875
-      latitud_inicial: 1.232320000000000081996631706715561449527740478515625
-      longitud_final: 12.12921000000000049112713895738124847412109375
-      latitud_final: -1.1821200000000000596145355302724055945873260498046875
+      longitud_inicial: -122.411
+      latitud_inicial: 37.770
+      longitud_final: -122.405
+      latitud_final: 37.791
   get_lat_lon:
     type: "object"
     properties:
       address:
         type: "string"
       number:
-        type: "integer"
-        format: "int64"
+        type: "string"
       comuna:
         type: "string"
       ciudad:
@@ -111,8 +133,17 @@ definitions:
       pais:
         type: "string"
     example:
-      address: "apoquindo"
-      number: 4820
-      comuna: "las condes"
-      ciudad: "santiago"
-      pais: "chile"
+      Inicio:
+        address: "apoquindo"
+        number: "4820"
+        comuna: "las condes"
+        ciudad: "santiago"
+        pais: "chile"
+      Destino:
+        address: "Antonio varas"
+        number: "880"
+        comuna: "providencia"
+        ciudad: "santiago"
+        pais: "chile"
+        
+      

@@ -15,7 +15,7 @@ class GetLatLon(Model):
     Do not edit the class manually.
     """
 
-    def __init__(self, address: str=None, number: int=None, comuna: str=None, ciudad: str=None, pais: str=None):  # noqa: E501
+    def __init__(self, address: str=None, number: str=None, comuna: str=None, ciudad: str=None, pais: str=None):  # noqa: E501
         """GetLatLon - a model defined in Swagger
 
         :param address: The address of this GetLatLon.  # noqa: E501
@@ -31,7 +31,7 @@ class GetLatLon(Model):
         """
         self.swagger_types = {
             'address': str,
-            'number': int,
+            'number': str,
             'comuna': str,
             'ciudad': str,
             'pais': str
@@ -84,7 +84,7 @@ class GetLatLon(Model):
         self._address = address
 
     @property
-    def number(self) -> int:
+    def number(self) -> str:
         """Gets the number of this GetLatLon.
 
 
@@ -94,7 +94,7 @@ class GetLatLon(Model):
         return self._number
 
     @number.setter
-    def number(self, number: int):
+    def number(self, number: str):
         """Sets the number of this GetLatLon.
 
 
