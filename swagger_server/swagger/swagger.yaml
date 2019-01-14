@@ -45,7 +45,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "hello"
+        description: "recibe un json con las direcciones y obtienes un json con las coordenads"
         required: true
         schema:
           $ref: "#/definitions/get_lat_lon"
@@ -67,7 +67,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "hello"
+        description: "recibe un json con coordenadas y entrega el tiempo en minutos"
         required: true
         schema:
           $ref: "#/definitions/estimated_time"
@@ -89,7 +89,7 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "hello"
+        description: "recibe json con direcciones y entrega a otros servicios, recibes tiempo en minutos"
         required: true
         schema:
           $ref: "#/definitions/get_lat_lon"
@@ -102,23 +102,23 @@ definitions:
   estimated_time:
     type: "object"
     properties:
-      longitud_inicial:
+      longitude_start:
         type: "number"
         
-      latitud_inicial:
+      latitude_start:
         type: "number"
         
-      longitud_final:
+      longitude_end:
         type: "number"
         
-      latitud_final:
+      latitude_end:
         type: "number"
         
     example:
-      longitud_inicial: -122.411
-      latitud_inicial: 37.770
-      longitud_final: -122.405
-      latitud_final: 37.791
+      longitude_start: -122.411
+      latitude_start: 37.770
+      longitude_end: -122.405
+      latitude_end: 37.791
   get_lat_lon:
     type: "object"
     properties:
@@ -126,24 +126,24 @@ definitions:
         type: "string"
       number:
         type: "string"
-      comuna:
+      county:
         type: "string"
-      ciudad:
+      city:
         type: "string"
-      pais:
+      country:
         type: "string"
     example:
-      Inicio:
+      inicio:
         address: "apoquindo"
         number: "4820"
-        comuna: "las condes"
-        ciudad: "santiago"
-        pais: "chile"
-      Destino:
+        county: "las condes"
+        city: "santiago"
+        country: "chile"
+      destino:
         address: "Antonio varas"
         number: "880"
-        comuna: "providencia"
-        ciudad: "santiago"
-        pais: "chile"
+        county: "providencia"
+        city: "santiago"
+        country: "chile"
         
       

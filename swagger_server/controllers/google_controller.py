@@ -21,18 +21,18 @@ def get_latlon_get(body):  # noqa: E501
 
         #print(body["Destino"])
         #inicio 
-        direccionI = body["Inicio"]["address"]
-        numeroI = str(body["Inicio"]["number"])
-        comunaI = body["Inicio"]["comuna"]
-        ciudadI = body["Inicio"]["ciudad"]
-        paisI = body["Inicio"]["pais"]
+        direccionI = body["inicio"]["address"]
+        numeroI = str(body["inicio"]["number"])
+        comunaI = body["inicio"]["county"]
+        ciudadI = body["inicio"]["city"]
+        paisI = body["inicio"]["country"]
         coordenadaI = get_coordinades(direccionI, numeroI, comunaI, ciudadI, paisI)
         #destino
-        direccionD = body["Destino"]["address"]
-        numeroD = str(body["Destino"]["number"])
-        comunaD = body["Destino"]["comuna"]
-        ciudadD = body["Destino"]["ciudad"]
-        paisD= body["Destino"]["pais"]
+        direccionD = body["destino"]["address"]
+        numeroD = str(body["destino"]["number"])
+        comunaD = body["destino"]["county"]
+        ciudadD = body["destino"]["city"]
+        paisD= body["destino"]["country"]
         coordenadaD = get_coordinades(direccionD, numeroD, comunaD, ciudadD, paisD)
 
         data = {
