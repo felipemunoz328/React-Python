@@ -1,0 +1,118 @@
+---
+swagger: "2.0"
+info:
+  description: "uber + google "
+  version: "1.0.0"
+  title: "Swagger Petstore"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "apiteam@swagger.io"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "localhost:8080"
+basePath: "/v2"
+tags:
+- name: "Uber"
+  description: "obtencion de tiempo estimado de viaje a travez de lon y lat de inicio\
+    \ y lon y lat de final"
+  externalDocs:
+    description: "Find out more"
+    url: "https://developer.uber.com/docs/riders/references/api/v1.2/requests-estimate-post"
+- name: "Google"
+  description: "obtencion de lon y lat a travez de direccion"
+- name: "user"
+  description: "consultar tiempo estimado"
+  externalDocs:
+    description: "Find out more about our store"
+    url: "http://swagger.io"
+schemes:
+- "https"
+- "http"
+
+paths:
+  /get_latlon:
+    get:
+      tags:
+      - "Google"
+      summary: "obtener tiempo estimado"
+      description: ""
+      operationId: "get_latlon_get"
+      consumes:
+      - "text/plain; charset=utf-8 , text/plain; charset=utf-8"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "hello"
+        required: true
+        schema:
+          $ref: "#/definitions/get_lat_lon"
+      responses:
+        200:
+          description: "OK"
+      x-swagger-router-controller: "swagger_server.controllers.google_controller"
+  /get_time:
+    post:
+      tags:
+      - "Uber"
+      summary: "obtener tiempo estimado con las locaciones"
+      description: ""
+      operationId: "get_time_post"
+      consumes:
+      - "application/json   "
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "hello"
+        required: true
+        schema:
+          $ref: "#/definitions/estimated_time"
+      responses:
+        200:
+          description: "OK"
+      x-swagger-router-controller: "swagger_server.controllers.uber_controller"
+definitions:
+  estimated_time:
+    type: "object"
+    properties:
+      longitud_inicial:
+        type: "number"
+        
+      latitud_inicial:
+        type: "number"
+        
+      longitud_final:
+        type: "number"
+        
+      latitud_final:
+        type: "number"
+        
+    example:
+      longitud_inicial: 17.21822999999999836973074707202613353729248046875
+      latitud_inicial: 1.232320000000000081996631706715561449527740478515625
+      longitud_final: 12.12921000000000049112713895738124847412109375
+      latitud_final: -1.1821200000000000596145355302724055945873260498046875
+  get_lat_lon:
+    type: "object"
+    properties:
+      address:
+        type: "string"
+      number:
+        type: "integer"
+        format: "int64"
+      comuna:
+        type: "string"
+      ciudad:
+        type: "string"
+      pais:
+        type: "string"
+    example:
+      address: "apoquindo"
+      number: 4820
+      comuna: "las condes"
+      ciudad: "santiago"
+      pais: "chile"
