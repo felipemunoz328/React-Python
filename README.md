@@ -9,6 +9,7 @@ This example uses the [Connexion](https://github.com/zalando/connexion) library 
 
 ## Requirements
 Python 3.5.2+
+
 ##Starting setup
 Create a virtual enviroment 
 ```
