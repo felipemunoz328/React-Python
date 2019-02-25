@@ -49,6 +49,7 @@ jobs:
           command: |
             . venv/bin/activate
             pip install tox
+            python --version
             tox
 
       - store_artifacts:
