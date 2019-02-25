@@ -5,7 +5,7 @@ from urllib.parse import quote, urlencode
 
 def get_coordinades(direccion, numero, comuna, ciudad, pais):
 
-    api_token = 'AIzaSyA-HXVa2jtkGfKtIJwisxgC46RaWqC1xuI'
+    api_token = 'AIzaSyDY3OH74rv5yLKz-z9-v2lYxjr-0BlH3WE'
     api_url_base = 'https://maps.googleapis.com/maps/api/geocode/json?address='
     lugar = direccion + ',' + numero + ',' + comuna + ',' + ciudad + ',' + pais
     lugar = {'address': lugar}
