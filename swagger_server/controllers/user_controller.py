@@ -24,7 +24,7 @@ def get_estimated(body):  # noqa: E501
         body = connexion.request.get_json()  # noqa: E501
         #change
         headers = {'Content-Type': 'application/json'}
-        r = requests.post("http://localhost:8080/v2/get_latlon", data=json.dumps(body), headers=headers)
-        data = requests.post("http://localhost:8080/v2/get_time", data=r, headers=headers)
+        r = requests.post("http://52.168.132.142/v2/get_latlon", data=json.dumps(body), headers=headers)
+        data = requests.post("http://52.168.132.142/v2/get_time", data=r, headers=headers)
 
     return  data.json()
