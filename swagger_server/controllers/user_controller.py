@@ -18,9 +18,11 @@ def get_estimated(body):  # noqa: E501
 
     :rtype: None
     """
+    print(body)
     if connexion.request.is_json:
         #print ("hello")
         body = connexion.request.get_json()  # noqa: E501
+        #change
         headers = {'Content-Type': 'application/json'}
         r = requests.post("http://localhost:8080/v2/get_latlon", data=json.dumps(body), headers=headers)
         data = requests.post("http://localhost:8080/v2/get_time", data=r, headers=headers)
