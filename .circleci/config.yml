@@ -51,7 +51,9 @@ jobs:
             . venv/bin/activate
             pip install tox
             python --version
-            tox
+            tox      
+      - setup_remote_docker:
+         docker_layer_caching: true
       - run:
            name: docker-image
            command: |
